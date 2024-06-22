@@ -1,4 +1,12 @@
-# app1.py (update)
+from flask import Flask, render_template, request
+from converter1 import convert_units
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return render_template('index1.html')
+
 @app.route('/convert', methods=['POST'])
 def convert():
     try:
@@ -10,5 +18,5 @@ def convert():
         result = "Invalid input. Please enter a numerical value."
     return render_template('index1.html', result=result)
 
-# Update index1.html to display errors clearly
-<p>{{ result }}</p>
+if __name__ == '__main__':
+    app.run(debug=True)
