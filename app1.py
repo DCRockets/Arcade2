@@ -1,11 +1,14 @@
-# app1.py
-from flask import Flask, render_template
+# app1.py (update)
+from flask import Flask, render_template, request
 
-app = Flask(__name__)
+@app.route('/convert', methods=['POST'])
+def convert():
+    value = request.form['value']
+    from_unit = request.form['from_unit']
+    to_unit = request.form['to_unit']
+    # Placeholder for conversion logic
+    result = f"Converting {value} from {from_unit} to {to_unit}"
+    return render_template('index1.html', result=result)
 
-@app.route('/')
-def home():
-    return render_template('index1.html')
-
-if __name__ == '__main__':
-    app.run(debug=True)
+# Add to the index1.html to display results
+<p>{{ result }}</p>

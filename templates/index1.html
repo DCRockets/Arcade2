@@ -4,8 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Unit Converter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
 </head>
 <body>
-<h1>Welcome to the Unit Converter</h1>
+<h1>Unit Converter</h1>
+<form action="/convert" method="post">
+    <label for="value">Value:</label>
+    <input type="text" id="value" name="value" required>
+    <label for="from_unit">From:</label>
+    <input type="text" id="from_unit" name="from_unit" required>
+    <label for="to_unit">To:</label>
+    <input type="text" id="to_unit" name="to_unit" required>
+    <button type="submit">Convert</button>
+</form>
 </body>
 </html>
